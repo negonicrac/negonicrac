@@ -1,0 +1,46 @@
+#site-footer {
+  .copywrite {
+    color: #555;
+    font-size: 85%;
+  }
+
+  margin-top: 0;
+  padding-bottom: 17px;
+  font-size: 90%;
+  color: #555;
+  border-top: 1px solid #bbb;
+
+  .container {
+    @include border-radius(3px);
+    margin-top: 2em;
+
+    $shadow: 0 1px 3px rgba(0,0,0,.25), inset 0 -1px 0 rgba(0,0,0,.1);
+    @include box-shadow($shadow);
+
+    background-color: rgb(244, 244, 244);
+    background-color: rgba(244, 244, 244, 0.9);
+    padding: 7px;
+    border: 1px solid #ddd;
+  }
+
+  ul {
+    text-align: center;
+    li { float: inherit; }
+  }
+
+  .copyright {}
+
+  .brand {
+    margin: 0 3px;
+    &:after {
+      content: "."
+    }
+  }
+
+  .tagline {
+    color: $funk;
+    &:after {
+      content: "."
+    }
+  }
+}

@@ -1,0 +1,49 @@
+article.post {
+  @include clearfix;
+  margin-bottom: 1.5em;
+
+  > header {
+    h1 { margin: .5em 0 0; }
+  }
+
+  .comments { text-transform: lowercase; }
+  .pubdate, .comments, .tags-list a {
+    font-family: $lassitude-mono-font-family;
+    margin-right: 3px;
+  }
+
+  .meta {
+    @include horizontal-list(3px);
+    @include border-radius(3px);
+
+    background-color: rgb(244, 244, 244);
+    background-color: rgba(244, 244, 244, 0.9);
+    border: 1px solid #ddd;
+    margin: 0;
+    padding: 0;
+    font-size: 80%;
+    display: block;
+    clear: both;
+    padding: 4px;
+
+    > li {
+      &:last-child { border-right: none; }
+      &.tags-list {
+        float: right;
+
+        ul {
+          @include clearfix;
+          @include horizontal-list(3px);
+          li { border-right: none; }
+        }
+      }
+      &.author, &.author a {
+        color: $funk;
+        span { margin-left: 5px; }
+        .fn { font-weight: bold; }
+      }
+    }
+  }
+
+  section p { margin: 1em 0 1.15em; }
+}

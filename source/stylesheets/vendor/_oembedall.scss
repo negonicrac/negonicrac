@@ -1,0 +1,376 @@
+div.oembedall-githubrepos {
+  border: 1px solid #DDD;
+  border-radius: 4px 4px 4px 4px;
+  list-style-type: none;
+  margin: 0 0 10px;
+  padding: 8px 10px 0;
+  font: 13.34px / 1.4 helvetica, arial, freesans, clean, sans-serif;
+  /*background: url("http://github.com/images/icons/public.png") no-repeat scroll 6px 9px transparent;*/
+  width: 452px;
+  background-color: #fff;
+  .oembedall-body {
+    background: -moz-linear-gradient(center top, #fafafa, #efefef) repeat scroll 0 0 transparent;
+    background: -webkit-gradient(linear, left top, left bottom, from(#fafafa), to(#efefef));
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    border-top: 1px solid #EEE;
+    margin-left: -10px;
+    margin-top: 8px;
+    padding: 5px 10px;
+    width: 100%;
+  }
+  h3 {
+    font-size: 14px;
+    margin: 0;
+    padding-left: 18px;
+    white-space: nowrap;
+  }
+  p {
+    &.oembedall-description {
+      color: #444;
+      font-size: 12px;
+      margin: 0 0 3px;
+    }
+    &.oembedall-updated-at {
+      color: #888;
+      font-size: 11px;
+      margin: 0;
+    }
+  }
+  ul.oembedall-repo-stats {
+    /*background: url("http://github.com/images/modules/pagehead/actions_fade.png") no-repeat scroll 0 0 transparent;*/
+    border: medium none;
+    float: right;
+    font-size: 11px;
+    font-weight: bold;
+    padding-left: 15px;
+    position: relative;
+    z-index: 5;
+    margin: 0;
+    li {
+      border: medium none;
+      color: #666;
+      display: inline-block;
+      list-style-type: none;
+      margin: 0 !important;
+      a {
+        background-color: transparent;
+        background-position: 5px -2px;
+        border: medium none;
+        color: #666 !important;
+        background-position: 5px -2px;
+        background-repeat: no-repeat;
+        border-left: 1px solid #DDD;
+        display: inline-block;
+        height: 21px;
+        line-height: 21px;
+        padding: 0 5px 0 23px;
+      }
+      &:first-child a {
+        border-left: medium none;
+        margin-right: -3px;
+      }
+      a:hover {
+        background: none no-repeat scroll 5px -27px #4183c4;
+        color: #FFFFFF !important;
+        text-decoration: none;
+      }
+      &:first-child a:hover {
+        border-bottom-left-radius: 3px;
+        border-top-left-radius: 3px;
+      }
+    }
+  }
+}
+
+ul.oembedall-repo-stats li:last-child a:hover {
+  border-bottom-right-radius: 3px;
+  border-top-right-radius: 3px;
+}
+
+div.oembedall-githubrepos ul.oembedall-repo-stats li {
+  &.oembedall-watchers a {
+    /*background-image: url("http://github.com/images/modules/pagehead/repostat_watchers.png");*/
+  }
+  &.oembedall-forks a {
+    /*background-image: url("http://github.com/images/modules/pagehead/repostat_forks.png");*/
+  }
+}
+
+span.oembedall-closehide {
+  background-color: #aaa;
+  border-radius: 2px;
+  cursor: pointer;
+  margin-right: 3px;
+}
+
+div.oembedall-container {
+  margin-top: 5px;
+  text-align: left;
+}
+
+.oembedall-ljuser {
+  font-weight: bold;
+  img {
+    vertical-align: bottom;
+    border: 0;
+    padding-right: 1px;
+  }
+}
+
+.oembedall-stoqembed {
+  border-bottom: 1px dotted #999999;
+  float: left;
+  overflow: hidden;
+  padding: 11px 0;
+  width: 730px;
+  line-height: 1;
+  background: none repeat scroll 0 0 #FFFFFF;
+  color: #000000;
+  font-family: Arial,Liberation Sans,DejaVu Sans,sans-serif;
+  font-size: 80%;
+  text-align: left;
+  margin: 0;
+  padding: 0;
+  a {
+    color: #0077CC;
+    text-decoration: none;
+    margin: 0;
+    padding: 0;
+    &:hover {
+      text-decoration: underline;
+    }
+    &:visited {
+      color: #4A6B82;
+    }
+  }
+  h3 {
+    font-family: Trebuchet MS,Liberation Sans,DejaVu Sans,sans-serif;
+    font-size: 130%;
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+  }
+  .oembedall-reputation-score {
+    color: #444444;
+    font-size: 120%;
+    font-weight: bold;
+    margin-right: 2px;
+  }
+  .oembedall-user-info {
+    height: 35px;
+    width: 185px;
+    .oembedall-user-gravatar32 {
+      float: left;
+      height: 32px;
+      width: 32px;
+    }
+    .oembedall-user-details {
+      float: left;
+      margin-left: 5px;
+      overflow: hidden;
+      white-space: nowrap;
+      width: 145px;
+    }
+  }
+  .oembedall-question-hyperlink {
+    font-weight: bold;
+  }
+  .oembedall-stats {
+    background: none repeat scroll 0 0 #EEEEEE;
+    margin: 0 0 0 7px;
+    padding: 4px 7px 6px;
+    width: 58px;
+  }
+  .oembedall-statscontainer {
+    float: left;
+    margin-right: 8px;
+    width: 86px;
+  }
+  .oembedall-votes {
+    color: #555555;
+    padding: 0 0 7px;
+    text-align: center;
+  }
+  .oembedall-vote-count-post {
+    display: block;
+    font-size: 240%;
+    color: #808185;
+    display: block;
+    font-weight: bold;
+  }
+  .oembedall-views {
+    color: #999999;
+    padding-top: 4px;
+    text-align: center;
+  }
+  .oembedall-status {
+    margin-top: -3px;
+    padding: 4px 0;
+    text-align: center;
+    background: none repeat scroll 0 0 #75845C;
+    color: #FFFFFF;
+    strong {
+      color: #FFFFFF;
+      display: block;
+      font-size: 140%;
+    }
+  }
+  .oembedall-summary {
+    float: left;
+    width: 635px;
+  }
+  .oembedall-excerpt {
+    line-height: 1.2;
+    margin: 0;
+    padding: 0 0 5px;
+  }
+  .oembedall-tags {
+    float: left;
+    line-height: 18px;
+    a:hover {
+      text-decoration: none;
+    }
+  }
+  .oembedall-post-tag {
+    background-color: #E0EAF1;
+    border-bottom: 1px solid #3E6D8E;
+    border-right: 1px solid #7F9FB6;
+    color: #3E6D8E;
+    font-size: 90%;
+    line-height: 2.4;
+    margin: 2px 2px 2px 0;
+    padding: 3px 4px;
+    text-decoration: none;
+    white-space: nowrap;
+    &:hover {
+      background-color: #3E6D8E;
+      border-bottom: 1px solid #37607D;
+      border-right: 1px solid #37607D;
+      color: #E0EAF1;
+    }
+  }
+  .oembedall-fr {
+    float: right;
+  }
+  .oembedall-statsarrow {
+    background-image: url("http://cdn.sstatic.net/stackoverflow/img/sprites.png?v=3");
+    background-repeat: no-repeat;
+    overflow: hidden;
+    background-position: 0 -435px;
+    float: right;
+    height: 13px;
+    margin-top: 12px;
+    width: 7px;
+  }
+}
+
+.oembedall-facebook1 {
+  border: #1A3C6C solid 1px;
+  padding: 0px;
+  font: 13.34px / 1.4 verdana;
+  width: 500px;
+}
+
+.oembedall-facebook2 {
+  background-color: #627add;
+  a {
+    color: #e8e8e8;
+    text-decoration: none;
+  }
+}
+
+.oembedall-facebookBody {
+  background-color: #fff;
+  div {
+    display: inline-block;
+    vertical-align: top;
+  }
+}
+
+div.oembedall-lanyard {
+  -webkit-box-shadow: none;
+  -webkit-transition-delay: 0s;
+  -webkit-transition-duration: 0.4000000059604645s;
+  -webkit-transition-property: width;
+  -webkit-transition-timing-function: cubic-bezier(0.42, 0, 0.58, 1);
+  background-attachment: scroll;
+  background-clip: border-box;
+  background-color: transparent;
+  background-image: none;
+  background-origin: padding-box;
+  border-bottom-width: 0px;
+  border-left-width: 0px;
+  border-right-width: 0px;
+  border-top-width: 0px;
+  box-shadow: none;
+  color: #112644;
+  display: block;
+  float: left;
+  font-family: 'Trebuchet MS', Trebuchet, sans-serif;
+  font-size: 16px;
+  height: 253px;
+  line-height: 19px;
+  margin-bottom: 0px;
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-top: 0px;
+  max-width: none;
+  min-height: 0px;
+  outline-color: #112644;
+  outline-style: none;
+  outline-width: 0px;
+  overflow-x: visible;
+  overflow-y: visible;
+  padding-bottom: 0px;
+  padding-left: 0px;
+  padding-right: 0px;
+  padding-top: 0px;
+  position: relative;
+  text-align: left;
+  vertical-align: baseline;
+  width: 804px;
+  .tagline {
+    font-size: 1.5em;
+  }
+  .wrapper {
+    overflow: hidden;
+    clear: both;
+  }
+  .split {
+    float: left;
+    display: inline;
+  }
+  .prominent-place .flag {
+    &:link, &:visited, &:hover, &:focus, &:active {
+      float: left;
+      display: block;
+      width: 48px;
+      height: 48px;
+      position: relative;
+      top: -5px;
+      margin-right: 10px;
+    }
+  }
+  .place-context {
+    font-size: 0.889em;
+  }
+  .prominent-place {
+    .sub-place {
+      display: block;
+    }
+    font-size: 1.125em;
+    line-height: 1.1em;
+    font-weight: normal;
+  }
+  .main-date {
+    color: #8CB4E0;
+    font-weight: bold;
+    line-height: 1.1;
+  }
+  .first {
+    margin-left: 0;
+    width: 48.57%;
+    margin: 0 0 0 2.857%;
+  }
+}

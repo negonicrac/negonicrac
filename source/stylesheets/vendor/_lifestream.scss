@@ -1,0 +1,26 @@
+#lifestream {
+  ul.lifestream {
+    margin:0; 
+    padding-left:0;
+    list-style-type: none;
+
+    li {
+      padding: 0.8em 0 1em 25px; 
+      border-bottom: 1px solid #ccc;
+      background-repeat: no-repeat;
+      background-position: left center;
+
+      &:last-child {border-bottom: none;}
+
+      > a {
+        // color: #f4f4f4; 
+        // background: #2b5497; 
+        border: none;
+      }
+
+      // > time {
+      //   border: none;
+      // }
+    }
+  }
+}

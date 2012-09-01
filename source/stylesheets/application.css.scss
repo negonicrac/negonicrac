@@ -1,0 +1,85 @@
+@import "compass";
+
+$lassitude-mono-font-family: Monaco, 'Courier New', monospace;
+$lassitude-accent: #2b5497;
+$lovers-in-japan: rgb(233, 78, 119) !default;
+$funk: rgb(240, 36, 117) !default;
+
+@import "bootstrap";
+
+.btn-cancel {
+  margin-left: 5px;
+}
+
+body {
+  padding-top: 40px;
+}
+
+@import "bootstrap-responsive";
+@import "bootstrap-datepicker";
+@import "mini-social-icons";
+@import "vendor/lifestream";
+@import "vendor/lifestream-backgrounds";
+@import "vendor/oembedall";
+
+
+/*!
+ * Lassitude v0.0.7
+ */
+
+html, body {
+  background: #f4f4f4 image_url('/images/layout/boxes.png');
+}
+
+.center-text {
+  text-align: center;
+}
+
+ul.horizontal-list {
+  @include horizontal-list;
+}
+
+.twitter-follow-button {
+  margin: 10px 5px 0;
+}
+
+ul.breadcrumb {
+  background-color: rgb(244, 244, 244);
+  background-color: rgba(244, 244, 244, 0.9);
+}
+
+.pagination {
+  ul {
+    @include clearfix();
+
+    li {
+      &.disabled {
+        display: none;
+      }
+    }
+  }
+}
+
+td.gsc-branding-text div.gsc-branding-text, td.gcsc-branding-text
+div.gcsc-branding-text, td.gcsc-branding-img-noclear,
+td.gcsc-branding-text-name, td.gsc-branding-img, td.gcsc-branding-img {
+  display: none;
+}
+
+.gsc-input {
+  padding: 4px !important;
+}
+
+time.ago {
+  color: #666;
+  font-family: $lassitude-mono-font-family;
+}
+
+@import "site_header";
+@import "site_page";
+@import "site_footer";
+
+@import "post";
+@import "post-excerpt";
+@import "posts";
+@import "mobile";

@@ -1,0 +1,15 @@
+url: "http://www.negonicrac.com"
+feed_url: "http://feeds.feedburner.com/negonicrac"
+name: "negonicrac.com"
+brandname: "negonicrac.com"
+tagline: "unicorn trainer"
+description: "Blog of Louis T. a life hacker, creator, and unicorn trainer."
+keywords: "blog, life-hacking, programing, Orlando Fl., Unicorns, hacking, linux, apple, fanboy, anime, kpop, d-addict"
+author: "Louis T. [@negonicrac]"
+author_nick: "Negonicrac"
+email: "louis@negonicrac.com"
+disqus_short_name: "negonicrac"
+
+google:
+  analytics_id: "UA-8901875-1"
+  custom_search_id: "011918219402106695427:yjnbrrak6r8"

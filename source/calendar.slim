@@ -1,0 +1,34 @@
+- @post_archive =(@month.nil? && @day.nil?) ? "Post Archive: #{@year}" : @day.nil? ? "Post Archive: #{month_name(@month)} #{@year}" : "Post Archive: #{month_name(@month)} #{ordinal(@day)}, #{@year}"
+
+- content_for :title do
+  = @post_archive
+
+ul.breadcrumb
+  li
+    == link_to "/", title: "home" do
+      i.icon-home
+    span.divider = "/"
+  li
+    == link_to "Archive", sitemap.find_resource_by_path("archive.html").url, title: "home"
+    span.divider = "/"
+  - unless @month.nil?
+    li
+      == link_to blog_year_path(@year), title: @year do
+        == @year
+      - unless @day.nil?
+        span.divider = "/"
+  - unless @day.nil?
+    li
+      == link_to blog_month_path(@year, @month), title: month_name(@month) do
+        == month_name(@month)
+
+header
+  h1 = @post_archive
+
+- if @articles
+  div.posts{ id=[@year, @month, @day].compact.join(" ") }
+    - @articles.each_with_index do |article, i|
+      == partial "post/excerpt", locals: { post: article }
+
+  == partial "post/disqus_count"
+

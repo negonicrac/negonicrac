@@ -1,0 +1,16 @@
+- content_for :title do
+  |Tags
+
+ul.breadcrumb
+  li
+    == link_to "/", title: "home" do
+      i.icon-home
+
+header
+  h1 Tags
+
+- unless blog.tags.empty?
+  ul.tags.horizontal-list
+    - blog.tags.each_with_index do |tag, i|
+      li == link_to "#{tag[0]} (#{tag[1].count})", tag_path(tag[0])
+

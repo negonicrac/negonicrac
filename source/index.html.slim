@@ -1,0 +1,12 @@
+- if blog.articles.empty?
+  h1 Oh...
+- else
+  == partial "post/full", locals: { post: blog.articles[0], show_breadcrumb: false }
+
+  - unless blog.articles[1..101].empty?
+    .posts
+      h3 Older Posts
+      - blog.articles[1..101].each_with_index do |article, i|
+        == partial "post/excerpt", locals: { post: article }
+
+  == partial "post/disqus_count"

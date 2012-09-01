@@ -1,0 +1,23 @@
+- content_for :title do
+  |Archive
+
+ul.breadcrumb
+  li
+    == link_to "/", title: "home" do
+      i.icon-home
+
+header
+  h1 Archive
+
+- unless blog.articles.empty?
+  .posts
+    - blog.articles.each_with_index do |article, i|
+      - @this_year = article.date.year
+      - unless @year == @this_year
+        - @year = @this_year
+        h2 = @year
+      == partial "post/excerpt", locals: { post: article }
+
+  == partial "post/disqus_count"
+
+

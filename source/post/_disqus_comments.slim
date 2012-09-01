@@ -1,0 +1,20 @@
+- if !post.data.comments.nil? && post.data.comments
+  #disqus_thread{ 
+    data-disqus-identifier="#{data.site.url}#{post.url}"
+    data-disqus-url="#{data.site.url}#{post.url}" }
+  javascript:
+    var disqus_identifier = $("#disqus_thread").data("disqus-identifier");
+    var disqus_url = $("#disqus_thread").data("disqus-url");
+    var disqus_developer = #{development? ? 1 : 0};
+
+    (function() {
+      var dsq = document.createElement("script");
+      dsq.type = "text/javascript";
+      dsq.async = true;
+      dsq.src = "http://" + disqus_shortname + ".disqus.com/embed.js";
+      (document.getElementsByTagName("head")[0] || document.getElementsByTagName("body")[0]).appendChild(dsq);
+    })();
+  noscript
+    |Please enable JavaScript to view the
+    a{href="http://disqus.com/?ref_noscript"}comments powered by Disqus.
+
