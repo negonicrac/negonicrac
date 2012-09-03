@@ -21,7 +21,7 @@ head
   link rel="alternate" href=page_feed_url title=data.site.title type="application/rss+xml"
 
   == stylesheet_link_tag "application", media: "all"
-  == javascript_include_tag "application"
+  == javascript_include_tag "application", async: "async"
 body class=page_classes data-disqus-shortname=data.site.disqus_short_name
   javascript:
     var disqus_shortname = $("body").data("disqus-shortname");
