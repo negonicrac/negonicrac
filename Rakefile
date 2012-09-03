@@ -79,6 +79,8 @@ task :deploy do
 
       if file_path.match(".gz$")
         file.merge!(:content_encoding => "gzip")
+      elsif file_path.match(".appcache$")
+        file.merge!(:content_type => "text/cache-manifest")
       end
 
       directory.files.create(file)

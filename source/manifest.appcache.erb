@@ -1,0 +1,8 @@
+CACHE MANIFEST
+# BUILD: <%= Time.now.iso8601 %>
+
+CACHE:
+  index.html
+<% sitemap.resources.select { |r| r.url =~ /.(jpg|jpeg|png|gif|swf|css|js)$/ }.each do |r| %>
+  <%= r.url.gsub(/^\//, "") %>
+<% end %>
