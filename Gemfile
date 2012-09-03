@@ -12,6 +12,7 @@ gem "middleman-blog"
 gem "middleman-livereload"
 gem "middleman-smusher"
 gem "middleman-minify-html"
+# gem "middleman-sync"
 
 gem "bootstrap-sass"
 

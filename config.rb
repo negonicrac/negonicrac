@@ -113,4 +113,17 @@ configure :build do
   activate :asset_hash
   activate :minify_css
   activate :minify_javascript
+
+  #deploy_configs = YAML::load_file(".fog.yml")
+  #if deploy_configs
+  #  activate :sync do |sync|
+  #    sync.fog_provider          = deploy_configs[:provider] # Your storage provider
+  #    sync.fog_directory         = deploy_configs[:bucket_name] # Your bucket name
+  #    sync.fog_region            = deploy_configs[:bucket_region_name] # The region your storage bucket is in
+  #    sync.aws_access_key_id     = deploy_configs[:aws_access_key_id] # Your Amazon S3 access key
+  #    sync.aws_secret_access_key = deploy_configs[:aws_secret_access_key] # Your Amazon S3 access secret
+  #    # sync.after_build         = true # Run sync after build
+  #    sync.existing_remote_files = "keep" # What to do with your existing remote files? (keep or delete)
+  #  end
+  #end
 end

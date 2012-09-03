@@ -51,25 +51,37 @@ task :deploy do
     files = Dir["**/*"].select { |f| File.file?(f) }
     files.each do |file_path|
       puts "uploading: #{file_path}"
+      cache_time = 28800
       cache_control = "max-age=28800, public"
 
       if file_path.match(".(flv|ico|pdf|avi|mov|ppt|doc|mp3|wmv|wav)$")
+        cache_time = 29030400
         cache_control = "max-age=29030400, public"
       elsif file_path.match(".(jpg|jpeg|png|gif|swf)$")
+        cache_time = 6048000
         cache_control = "max-age=6048000, public"
       elsif file_path.match(".(txt|xml|js|css)$")
+        cache_time = 28800
         cache_control = "max-age=28800, public"
       elsif file_path.match(".(html|htm.gz)$")
+        cache_time = 28800
         cache_control = "max-age=28800, public"
       elsif file_path.match(".(php|cgi|pl)$")
+        cache_time = 0
         cache_control = "max-age=0, private, no-store, no-cache, must-revalidate"
       end
 
-      directory.files.create(
-        key: "#{path}#{file_path}",
-        body: File.open(file_path),
-        public: true,
-        cache_control: cache_control)
+      file = { key: "#{path}#{file_path}",
+               body: File.open(file_path),
+               public: true,
+               cache_control: cache_control,
+               expires: CGI.rfc1123_date(Time.now + cache_time) }
+
+      if file_path.match(".gz$")
+        file.merge!(:content_encoding => "gzip")
+      end
+
+      directory.files.create(file)
     end
   end
 
