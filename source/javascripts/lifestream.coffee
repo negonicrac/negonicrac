@@ -1,3 +1,5 @@
+#{ service: "foursquare",   user: "negonicrac" },
+#{ service: "forrst",       user: "negonicrac" },
 LifeStream =
   setup: ->
     count = 0
@@ -9,8 +11,6 @@ LifeStream =
           { service: "youtube",      user: "nnegonicrac" },
           { service: "github",       user: "negonicrac" },
           { service: "tumblr",       user: "negonicrac" },
-          { service: "forrst",       user: "negonicrac" },
-          { service: "foursquare",   user: "negonicrac" },
           { service: "dribble",      user: "negonicrac" },
           { service: "googleplus",   user: "113192904857695283969" },
           { service: "googlereader", user: "17398064906584369885" }
