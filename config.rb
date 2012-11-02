@@ -38,7 +38,7 @@ ignore 'javascripts/oembed.js'
 ignore 'javascripts/timeago.js'
 ignore 'javascripts/toISO8601.js'
 ignore 'javascripts/vendor/*'
-ignore 'images/mini-social-icons/*'
+#ignore 'images/mini-social-icons/*'
 
 set :css_dir, 'stylesheets'
 set :js_dir, 'javascripts'

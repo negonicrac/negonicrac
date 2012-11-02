@@ -36,29 +36,26 @@ jQuery ->
     dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js'
     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq)
 
-  $('#search-results').each ->
-    $element = $(this)
-    $.getScript('http://www.google.com/jsapi', success: ->
-      google.load('search', '1', {language : 'en'})
+  $('#google-analytics').each (index, element) ->
+    $element = $(element)
+   
+    unless $element.hasClass('google-analytics-loaded')
+      window._gaq = window._gaq || []
 
-      $element.find('#cse-search-box').hide();
+      google_account = $element.data('account')
+      
+      window._gaq.push(['_setAccount', google_account])
+      window._gaq.push(['_trackPageview'])
+      window._gaq.push(['_trackPageLoadTime'])
 
-      getQuery = () ->
-        url = '' + window.location
-        queryStart = url.indexOf('?') + 1
+      #console.log(window._gaq)
+      #console.log('google analytics loaded')
+      #console.log($element.data('account'))
+      #console.log($element)
+      #console.log(index)
 
-        if (queryStart > 0)
-          parts = url.substr(queryStart).split('&')
-          decodeURIComponent(part.split('=')[1].replace(/\+/g, ' ')) for part in parts when part.length > 7 and part.substr(0, 7) == 'search='
+      Modernizr.load({
+        load: '//www.google-analytics.com/ga.js'
+      })
 
-        ''
-
-      callback = () ->
-        customSearchControl = new google.search.CustomSearchControl('{{site.google.custom_search_id}}')
-        customSearchControl.setResultSetSize(google.search.Search.FILTERED_CSE_RESULTSET)
-        customSearchControl.draw('cse')
-        customSearchControl.execute(getQuery())
-
-      google.setOnLoadCallback callback, true
-    )
-
+      $element.addClass('google-analytics-loaded')

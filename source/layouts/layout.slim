@@ -98,13 +98,4 @@ body class=page_classes data-disqus-shortname=data.site.disqus_short_name
                 span.tagline = data.site.tagline
 
   - if data.site.google.analytics_id && !development?
-    javascript:
-      window._gaq = window._gaq || [];
-
-      window._gaq.push(['_setAccount', '#{data.site.google.analytics_id}']);
-      window._gaq.push(['_trackPageview']);
-      window._gaq.push(['_trackPageLoadTime']);
-
-      Modernizr.load({
-        load: ('https:' == location.protocol ? '//ssl' : '//www') + '.google-analytics.com/ga.js'
-      });
+    #google-analytics{ data-account=data.site.google.analytics_id data-loaded=false }
