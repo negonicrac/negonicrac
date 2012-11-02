@@ -49,7 +49,7 @@ set :markdown, renderer: Righthand::HTML
 configure :build do
   set :js_compressor, Uglifier.new(toplevel: false, unsafe: true, copyright: false)
 
-  activate :smusher
+  #activate :smusher
   activate :minify_html
   activate :gzip
   activate :asset_hash
