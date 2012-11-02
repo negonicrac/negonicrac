@@ -5,18 +5,18 @@
 
 ul.breadcrumb
   li
-    == link_to "/", title: "home" do
+    == link_to '/', title: 'home' do
       i.icon-home
-    span.divider = "/"
+    span.divider = '/'
   li
-    == link_to "Archive", sitemap.find_resource_by_path("archive.html").url, title: "home"
-    span.divider = "/"
+    == link_to 'Archive', sitemap.find_resource_by_path('archive.html').url, title: 'home'
+    span.divider = '/'
   - unless @month.nil?
     li
       == link_to blog_year_path(@year), title: @year do
         == @year
       - unless @day.nil?
-        span.divider = "/"
+        span.divider = '/'
   - unless @day.nil?
     li
       == link_to blog_month_path(@year, @month), title: month_name(@month) do
@@ -26,9 +26,9 @@ header
   h1 = @post_archive
 
 - if @articles
-  div.posts{ id=[@year, @month, @day].compact.join(" ") }
+  div.posts{ id=[@year, @month, @day].compact.join(' ') }
     - @articles.each_with_index do |article, i|
-      == partial "post/excerpt", locals: { post: article }
+      == partial 'post/excerpt', locals: { post: article }
 
-  == partial "post/disqus_count"
+  == partial 'post/disqus_count'
 

@@ -1,6 +1,6 @@
-require "righthand/html"
-require "righthand/helpers"
-require "righthand/monkeypatches/blog_article"
+require 'righthand/html'
+require 'righthand/helpers'
+require 'righthand/monkeypatches/blog_article'
 
 helpers do
   include Righthand::Helpers::AuthorHelpers
@@ -12,37 +12,37 @@ activate :livereload
 activate :directory_indexes
 
 activate :blog do |blog|
-  blog.permalink         = "/archive/:year/:month/:day/:title.html"
-  blog.sources           = "posts/:year-:month-:day-:title.html"
-  blog.layout            = "post"
-  blog.default_extension = ".md"
+  blog.permalink         = '/archive/:year/:month/:day/:title.html'
+  blog.sources           = 'posts/:year-:month-:day-:title.html'
+  blog.layout            = 'post'
+  blog.default_extension = '.md'
 
-  blog.taglink           = "/tags/:tag.html"
-  blog.tag_template      = "tag.html"
+  blog.taglink           = '/tags/:tag.html'
+  blog.tag_template      = 'tag.html'
 
-  blog.year_link         = "/archive/:year.html"
-  blog.month_link        = "/archive/:year/:month.html"
-  blog.day_link          = "/archive/:year/:month/:day.html"
-  blog.calendar_template = "calendar.html"
+  blog.year_link         = '/archive/:year.html'
+  blog.month_link        = '/archive/:year/:month.html'
+  blog.day_link          = '/archive/:year/:month/:day.html'
+  blog.calendar_template = 'calendar.html'
 end
 
-page "/manifest.appcache", layout: false
-page "/atom.xml", layout: false
-page "/sitemap.xml", layout: false
-page "/humans.txt", layout: false
-page "/disqus.html", layout: false, directory_index: false
+page '/manifest.appcache', layout: false
+page '/atom.xml', layout: false
+page '/sitemap.xml', layout: false
+page '/humans.txt', layout: false
+page '/disqus.html', layout: false, directory_index: false
 
-ignore "javascripts/fitvids.js"
-ignore "javascripts/lifestream.js"
-ignore "javascripts/oembed.js"
-ignore "javascripts/timeago.js"
-ignore "javascripts/toISO8601.js"
-ignore "javascripts/vendor/*"
-ignore "images/mini-social-icons/*"
+ignore 'javascripts/fitvids.js'
+ignore 'javascripts/lifestream.js'
+ignore 'javascripts/oembed.js'
+ignore 'javascripts/timeago.js'
+ignore 'javascripts/toISO8601.js'
+ignore 'javascripts/vendor/*'
+ignore 'images/mini-social-icons/*'
 
-set :css_dir, "stylesheets"
-set :js_dir, "javascripts"
-set :images_dir, "images"
+set :css_dir, 'stylesheets'
+set :js_dir, 'javascripts'
+set :images_dir, 'images'
 set :markdown_engine, :redcarpet
 set :markdown, renderer: Righthand::HTML
 

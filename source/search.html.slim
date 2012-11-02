@@ -1,0 +1,41 @@
+- content_for :title do
+  |Search
+
+ul.breadcrumb
+  li
+    == link_to '/', title: 'home' do
+      i.icon-home
+
+header
+  h1 Search
+
+#cse{ style='width: 100%;' }Loading...
+
+script src='http://www.google.com/jsapi' type='text/javascript'
+javascript:
+  google.load('search', '1', {language : 'en'});
+
+  /**
+   * Extracts the users query from the URL.
+   */
+  function getQuery() {
+    var url = '' + window.location;
+    var queryStart = url.indexOf('?') + 1;
+    if (queryStart > 0) {
+      var parts = url.substr(queryStart).split('&');
+      for (var i = 0; i < parts.length; i++) {
+        if (parts[i].length > 7 && parts[i].substr(0, 7) == 'search=') {
+          return decodeURIComponent(parts[i].split('=')[1].replace(/\+/g, ' '));
+        }
+      }
+    }
+    return '';
+  }
+
+  google.setOnLoadCallback(function() {
+    var customSearchControl = new google.search.CustomSearchControl('#{data.site.google.custom_search_id}');
+    customSearchControl.setResultSetSize(google.search.Search.FILTERED_CSE_RESULTSET);
+    customSearchControl.draw('cse');
+    customSearchControl.execute(getQuery());
+  }, true);
+

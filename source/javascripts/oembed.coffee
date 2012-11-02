@@ -1,9 +1,9 @@
 Oembed =
   setup: ->
-    $(".embed").oembed(null,{
-      embedMethod: "fill",
+    $('.embed').oembed(null,{
+      embedMethod: 'fill',
       afterEmbed: ->
-        $(".fluid-video, .oembedall-container, .embed").fitVids()
+        $('.fluid-video, .oembedall-container, .embed').fitVids()
     })
 
 jQuery ->

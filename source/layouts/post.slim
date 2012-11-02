@@ -2,6 +2,6 @@
   = current_article.title
 
 == wrap_layout :layout do
-  == partial "post/full", locals: { post: current_article, show_breadcrumb: true }
-  == partial "post/disqus_comments", locals: { post: current_article }
-  == partial "post/disqus_count"
+  == partial 'post/full', locals: { post: current_article, show_breadcrumb: true }
+  == partial 'post/disqus_comments', locals: { post: current_article }
+  == partial 'post/disqus_count'

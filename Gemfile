@@ -1,19 +1,19 @@
 source :rubygems
 
-gem "rake"
-gem "slim"
-gem "builder"
-gem "uglifier"
+gem 'rake'
+gem 'slim'
+gem 'builder'
+gem 'uglifier'
 
-gem "righthand", path: "~/Development/ruby/righthand"
+gem 'righthand', path: '~/Development/ruby/righthand'
 
-gem "middleman", github: "middleman/middleman"
-gem "middleman-blog"
-gem "middleman-livereload"
-gem "middleman-smusher"
-gem "middleman-minify-html"
+gem 'middleman'
+gem 'middleman-blog'
+gem 'middleman-livereload'
+gem 'middleman-smusher'
+gem 'middleman-minify-html'
 
-gem "bootstrap-sass"
+gem 'bootstrap-sass'
 
-gem "favicon_maker"
-gem "fog"
+gem 'favicon_maker'
+gem 'fog'

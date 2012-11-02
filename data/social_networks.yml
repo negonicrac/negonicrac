@@ -1,6 +1,34 @@
-twitter: "negonicrac"
-spotify: "negonicrac"
-github: "negonicrac"
-google_plus: "negonicrac"
-linkedin: "negonicrac"
-pinterest: "negonicrac"
+twitter: 
+  username: 'negonicrac'
+  url: 'https://twitter.com/negonicrac'
+
+spotify:
+  username: 'negonicrac'
+  url: ''
+
+github:
+  username: 'negonicrac'
+  url: 'https://github.com/negonicrac'
+
+google_plus:
+  username: 'negonicrac'
+  url: 'https://plus.google.com/113192904857695283969/posts'
+
+linkedin:
+  username: 'negonicrac'
+  url: ~
+
+pinterest:
+  username: 'negonicrac'
+  url: 'http://pinterest.com/negonicrac/'
+
+youtube:
+  url: ~
+
+vimeo:
+  username: 'negonicrac'
+  url: ~
+
+instagram:
+  username: 'negonicrac'
+  url: ~

@@ -1,2 +1,2 @@
 jQuery ->
-  $(".fluid-video, .oembedall-container").fitVids()
+  $('.fluid-video, .oembedall-container').fitVids()

@@ -1,40 +1,37 @@
 doctype html
 /[ if lt IE 7 ]
-  html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en" manifest="manifest.appcache"
+  html class='no-js lt-ie9 lt-ie8 lt-ie7' lang='en' manifest='manifest.appcache'
 /[ if IE 7 ]
-  html class="no-js lt-ie9 lt-ie8" lang="en" manifest="manifest.appcache"
+  html class='no-js lt-ie9 lt-ie8' lang='en' manifest='manifest.appcache'
 /[ if IE 8 ]
-  html class="no-js lt-ie9" lang="en" manifest="manifest.appcache"
+  html class='no-js lt-ie9' lang='en' manifest='manifest.appcache'
 /[ if (gte IE 9)|!(IE) ]
-  html class="no-js" lang="en" manifest="manifest.appcache"
+  html class='no-js' lang='en' manifest='manifest.appcache'
 head
-  meta charset="utf-8"
-  meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"
-  meta name="viewport" content="width=device-width,initial-scale=1.0"
+  meta charset='utf-8'
+  meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'
+  meta name='viewport' content='width=device-width,initial-scale=1.0'
 
   title=page_title
-  meta name="description" content=page_description
-  meta name="keywords" content=page_keywords
+  meta name='description' content=page_description
+  meta name='keywords' content=page_keywords
 
-  link href="https://plus.google.com/u/0/113192904857695283969/posts" rel="author"
-  link type="text/plain" rel="author" href=sitemap.find_resource_by_path("humans.txt").url
-  link rel="alternate" href=page_feed_url title=data.site.title type="application/rss+xml"
+  link href='https://plus.google.com/u/0/113192904857695283969/posts' rel='author'
+  link type='text/plain' rel='author' href=sitemap.find_resource_by_path('humans.txt').url
+  link rel='alternate' href=page_feed_url title=data.site.title type='application/rss+xml'
 
-  == stylesheet_link_tag "application", media: "all"
-  == javascript_include_tag "application", defer: "defer"
+  == stylesheet_link_tag 'application', media: 'all'
+  == javascript_include_tag 'application', defer: 'defer'
 body class=page_classes data-disqus-shortname=data.site.disqus_short_name
-  javascript:
-    var disqus_shortname = $("body").data("disqus-shortname");
-
   header#site-header.navbar-fixed-top
-    .navbar.navbar-fixed-top
+    .navbar.navbar-inverse.navbar-fixed-top
       .navbar-inner
         .container
           .row
             .span12
-              == link_to data.site.name, "/", title: "Home", class: "brand"
+              == link_to data.site.name, '/', title: 'Home', class: 'brand'
 
-              a.btn.btn-navbar data-toggle="collapse" data-target=".nav-collapse"
+              a.btn.btn-navbar data-toggle='collapse' data-target='.nav-collapse'
                 span.icon-bar
                 span.icon-bar
                 span.icon-bar
@@ -42,29 +39,46 @@ body class=page_classes data-disqus-shortname=data.site.disqus_short_name
               .nav-collapse
                 nav.pull-right
                   ul.nav
-                    li == link_to "archive", sitemap.find_resource_by_path("archive.html").url
-                    li == link_to "tags", sitemap.find_resource_by_path("tags.html").url
+                    li == link_to 'archive', sitemap.find_resource_by_path('archive.html').url
+                    li == link_to 'tags', sitemap.find_resource_by_path('tags.html').url
                     li
-                      a.twitter-follow-button{
-                        href="https://twitter.com/#{data.social_networks.twitter}" data-show-count="false"}="Follow #{data.social_networks.twitter}"
+                      a.twitter-follow-button{href=data.social_networks.twitter.url data-show-count='false'}="Follow #{data.social_networks.twitter.username}"
                       javascript:
-                        !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
-                  form#cse-search-box.navbar-search action=sitemap.find_resource_by_path("search.html").url
-                    input type="search" name="q" placeholder="search"
+                        !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='//platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','twitter-wjs');
+                  form#cse-search-box.navbar-search action=sitemap.find_resource_by_path('search.html').url
+                    input type='search' name='search' placeholder='search'
 
   #site-page
     .container
       .row
-        section#content.span8 role="main"
+        section#content.span8 role='main'
           == yield
         aside#sidebar.span4
           - unless blog.tags.empty?
-            section#tags
+            section#tags.hidden-phone
               h2 Tags
               ul.tags.horizontal-list
                 - blog.tags.each_with_index do |tag, i|
-                  li == link_to "#{tag[0]}", tag_path(tag[0])
-          section#social
+                  li == link_to tag[0], tag_path(tag[0])
+          - if false
+            section#social-links
+              ul.horizontal-list
+                - if data.social_networks.twitter.url
+                  li == link_to 'Twitter', data.social_networks.twitter.url, class: 'mini-social-icon mini-social-icons-twitter'
+                - if data.social_networks.google_plus.url
+                  li == link_to 'Google+', data.social_networks.google_plus.url, class: 'mini-social-icon mini-social-icons-googleplus'
+                - if data.social_networks.linkedin.url
+                  li == link_to 'Linkedin', data.social_networks.linkedin.url, class: 'mini-social-icon mini-social-icons-linkedin'
+                - if data.social_networks.youtube.url
+                  li == link_to 'Youtube', data.social_networks.youtube.url, class: 'mini-social-icon mini-social-icons-youtube'
+                - if data.social_networks.vimeo.url
+                  li == link_to 'Vimeo', data.social_networks.vimeo.url, class: 'mini-social-icon mini-social-icons-vimeo'
+                - if data.social_networks.instagram.url
+                  li == link_to 'Instagram', data.social_networks.Instagram.url, class: 'mini-social-icon mini-social-icons-instagram'
+                - if data.social_networks.pinterest.url
+                  li == link_to 'Instagram', data.social_networks.pinterest.url, class: 'mini-social-icon mini-social-icons-instagram'
+
+          section#social.hide
             h2 Stream
             #lifestream
 
@@ -73,14 +87,8 @@ body class=page_classes data-disqus-shortname=data.site.disqus_short_name
       .row
         .span8
           ul.horizontal-list.center-text
-            li == link_to "archive", sitemap.find_resource_by_path("archive.html").url
-            li == link_to "tags", sitemap.find_resource_by_path("tags.html").url
-            / li = link_to "About", page_path("about")
-            / li = link_to "Advertising", "#"
-            / li = link_to "Jobs", "#"
-            / li = link_to "Terms", page_path("terms")
-            / li = link_to "Privacy", page_path("privacy")
-            / li = link_to "Help", page_path("help")
+            li == link_to 'archive', sitemap.find_resource_by_path('archive.html').url
+            li == link_to 'tags', sitemap.find_resource_by_path('tags.html').url
 
         .span4
           ul.horizontal-list.mini-social-links.pull-left
@@ -88,22 +96,15 @@ body class=page_classes data-disqus-shortname=data.site.disqus_short_name
                 == "&copy; #{DateTime.now.year}"
                 span.brand = data.site.brandname
                 span.tagline = data.site.tagline
-            / li == link_to "Facebook", "#", class: "mini-social-icon mini-social-icons-facebook"
-            / li == link_to "Twitter", "#", class: "mini-social-icon mini-social-icons-twitter"
-            / li == link_to "Google+", "#", class: "mini-social-icon mini-social-icons-googleplus"
-            / li == link_to "Linkedin", "#", class: "mini-social-icon mini-social-icons-linkedin"
-            / li == link_to "Youtube", "#", class: "mini-social-icon mini-social-icons-youtube"
-            / li == link_to "Vimeo", "#", class: "mini-social-icon mini-social-icons-vimeo"
-            / li == link_to "Instagram", "#", class: "mini-social-icon mini-social-icons-instagram"
 
   - if data.site.google.analytics_id && !development?
     javascript:
       window._gaq = window._gaq || [];
 
-      window._gaq.push(["_setAccount","#{data.site.google.analytics_id}"]);
-      window._gaq.push(["_trackPageview"]);
-      window._gaq.push(["_trackPageLoadTime"]);
+      window._gaq.push(['_setAccount', '#{data.site.google.analytics_id}']);
+      window._gaq.push(['_trackPageview']);
+      window._gaq.push(['_trackPageLoadTime']);
 
       Modernizr.load({
-        load: ("https:" == location.protocol ? "//ssl" : "//www") + ".google-analytics.com/ga.js"
+        load: ('https:' == location.protocol ? '//ssl' : '//www') + '.google-analytics.com/ga.js'
       });

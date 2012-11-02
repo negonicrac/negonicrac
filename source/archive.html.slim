@@ -3,7 +3,7 @@
 
 ul.breadcrumb
   li
-    == link_to "/", title: "home" do
+    == link_to '/', title: 'home' do
       i.icon-home
 
 header
@@ -16,8 +16,8 @@ header
       - unless @year == @this_year
         - @year = @this_year
         h2 = @year
-      == partial "post/excerpt", locals: { post: article }
+      == partial 'post/excerpt', locals: { post: article }
 
-  == partial "post/disqus_count"
+  == partial 'post/disqus_count'
 
 

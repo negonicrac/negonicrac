@@ -3,19 +3,19 @@
 
 ul.breadcrumb
   li
-    == link_to "/", title: "home" do
+    == link_to '/', title: 'home' do
       i.icon-home
-    span.divider = "/"
+    span.divider = '/'
   li
-    == link_to "Tags", sitemap.find_resource_by_path("tags.html").url, title: "Tags"
+    == link_to 'Tags', sitemap.find_resource_by_path('tags.html').url, title: 'Tags'
 
 header
-  h1 = "Tag: #{@tag}"
+  h1 = 'Tag: #{@tag}'
 
 - if @articles
   .posts
     - @articles.each_with_index do |article, i|
-      == partial "post/excerpt", locals: { post: article }
+      == partial 'post/excerpt', locals: { post: article }
 
-  == partial "post/disqus_count"
+  == partial 'post/disqus_count'
 
