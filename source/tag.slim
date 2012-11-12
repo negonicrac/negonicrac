@@ -10,7 +10,7 @@ ul.breadcrumb
     == link_to 'Tags', sitemap.find_resource_by_path('tags.html').url, title: 'Tags'
 
 header
-  h1 = 'Tag: #{@tag}'
+  h1 = "Tag: #{@tag}"
 
 - if @articles
   .posts
