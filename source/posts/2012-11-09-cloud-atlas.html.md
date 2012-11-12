@@ -1,4 +1,4 @@
-[[---]]
+---
 title: 'Cloud Atlas'
 date: 2012-11-09 04:20 -5
 comments: false
