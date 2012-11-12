@@ -5,9 +5,9 @@ LifeStream =
       list =
         [
           { service: 'twitter', user: 'negonicrac' },
-          { service: 'youtube', user: 'nnegonicrac' },
+          #{ service: 'youtube', user: 'nnegonicrac' },
           { service: 'github',  user: 'negonicrac' },
-          { service: 'tumblr',  user: 'negonicrac' },
+          #{ service: 'tumblr',  user: 'negonicrac' },
           { service: 'lastfm',  user: 'negonicrac' }
           #{ service: 'dribble', user: 'negonicrac' }
         ]
