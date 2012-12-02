@@ -28,7 +28,7 @@ article.post.hentry
         span.fn == link_to post.author.name, post.author.url, rel: "nofollow"
       li.pubdate
         time.published.ago{ datetime=post.date.to_time.iso8601 pubdate="pubdate" }
-          == post.date.strftime("%e %B %Y %l:%M %P")
+          == post.date.localtime.strftime("%e %B %Y %l:%M %p %Z")
       - if post.comments
         li == link_to "comments", "#{post.url}#disqus_thread", class: "comments", data: { disqus: { identifier: "#{data.site.url}#{post.url}" } }
       - unless post.tags.empty?
@@ -39,4 +39,3 @@ article.post.hentry
             - post.tags.each do |tag|
               li == link_to tag, tag_path(tag)
   section.content == post.body
-

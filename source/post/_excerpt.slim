@@ -2,7 +2,7 @@ article.post.post-excerpt.hentry
   .row
     .pubdate.span2
       time.published{ datetime=post.date.strftime('%Y-%m-%dT%H:%M:%S%Z') pubdate='pubdate' }
-        == post.date.strftime('%e %B %Y %l:%M %P')
+        == post.date.localtime.strftime('%e %B %Y %l:%M %p %Z')
     .span6
       header.row
         h1.entry-title.span4 == link_to post.title, post.url, class: 'permalink', title: post.title, rel: 'bookmark'
