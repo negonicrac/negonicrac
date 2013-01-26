@@ -51,14 +51,14 @@ body class=page_classes data-disqus-shortname=data.site.disqus_short_name
   #site-page
     .container
       .row
-        section#content.span8 role='main'
+        section#content.span9 role='main'
           == yield
-        aside#sidebar.span4
+        aside#sidebar.span3
           - unless blog.tags.empty?
             section#tags.hidden-phone
               h2 Tags
               ul.tags.horizontal-list
-                - blog.tags.each_with_index do |tag, i|
+                - blog.tags.sort { |a,b| a[0].downcase <=> b[0].downcase }.each_with_index do |tag, i|
                   li == link_to tag[0], tag_path(tag[0])
           - if false
             section#social-links
@@ -85,12 +85,12 @@ body class=page_classes data-disqus-shortname=data.site.disqus_short_name
   footer#site-footer
     .container
       .row
-        .span8
+        .span9
           ul.horizontal-list.center-text
             li == link_to 'archive', sitemap.find_resource_by_path('archive.html').url
             li == link_to 'tags', sitemap.find_resource_by_path('tags.html').url
 
-        .span4
+        .span3
           ul.horizontal-list.mini-social-links.pull-left
             li.copywrite
                 == "&copy; #{DateTime.now.year}"

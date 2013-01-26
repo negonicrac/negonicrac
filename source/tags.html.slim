@@ -10,7 +10,15 @@ header
   h1 Tags
 
 - unless blog.tags.empty?
-  ul.tags.horizontal-list
-    - blog.tags.each_with_index do |tag, i|
-      li == link_to "#{tag[0]} (#{tag[1].count})", tag_path(tag[0])
+  ul.tags.horizontal-list{ style="border-bottom: 1px solid #ccc; border-top: 1px solid #ccc; padding: 10px 0; margin: 15px 0;" }
+    - blog.tags.sort { |a,b| a[0].downcase <=> b[0].downcase }.each_with_index do |tag, i|
+      li.span3{ style="padding-left: 4px;" } == link_to "#{tag[0]} (#{tag[1].count})", sitemap.find_resource_by_path('tags.html').url, anchor: tag[0].parameterize 
+
+  - blog.tags.sort { |a,b| a[0].downcase <=> b[0].downcase }.each_with_index do |tag, i|
+    .tag.clearfix{ id=tag[0].parameterize }
+      h2 == link_to tag[0], tag_path(tag[0])
+      - tag[1][0..2].each_with_index do |article, i|
+        == partial 'post/excerpt', locals: { post: article }
+      - if tag[1].count > 3
+        small.pull-right == link_to "view all #{tag[1].count} #{tag[0]} posts", tag_path(tag[0])
 

@@ -10,12 +10,20 @@ header
   h1 Archive
 
 - unless blog.articles.empty?
-  .posts
+  ul.tags.horizontal-list{ style="border-bottom: 1px solid #ccc; border-top: 1px solid #ccc; padding: 10px 0; margin: 15px 0;" }
     - blog.articles.each_with_index do |article, i|
       - @this_year = article.date.year
       - unless @year == @this_year
         - @year = @this_year
-        h2 = @year
+        li.span3{ style="padding-left: 4px;" } == link_to @year, sitemap.find_resource_by_path('archive.html').url, anchor: @year 
+
+  .posts.clearfix
+    - blog.articles.each_with_index do |article, i|
+      - @this_year = article.date.year
+      - unless @year == @this_year
+        - @year = @this_year
+        .clearfix{ id=@year.to_s.parameterize }
+          h2 == link_to @year,  blog_year_path(@year)
       == partial 'post/excerpt', locals: { post: article }
 
   == partial 'post/disqus_count'
