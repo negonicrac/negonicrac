@@ -1,8 +1,8 @@
-#= require vendor/modernizr
-#= require vendor/jquery
-#= require vendor/jquery-ui
-#= require vendor/jquery.tmpl
-#= require vendor/jquery.lifestream
+#= require vendor/modernizr.custom.26373
+#= require vendor/jquery.min
+#= require vendor/jquery-ui-1.10.0.custom.min
+#= require vendor/jquery.tmpl.min
+#= require vendor/jquery.lifestream.min
 #= require vendor/jquery.timeago
 #= require vendor/jquery.fitvids
 #= require bootstrap
@@ -10,8 +10,6 @@
 #= require lifestream
 #= require timeago
 #= require fitvids
-
-
 
 jQuery ->
   $('.disqus-count').each ->
@@ -36,6 +34,7 @@ jQuery ->
     dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js'
     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq)
 
+  # Google page view tracking
   $('#google-analytics').each (index, element) ->
     $element = $(element)
    
@@ -48,14 +47,25 @@ jQuery ->
       window._gaq.push(['_trackPageview'])
       window._gaq.push(['_trackPageLoadTime'])
 
-      #console.log(window._gaq)
-      #console.log('google analytics loaded')
-      #console.log($element.data('account'))
-      #console.log($element)
-      #console.log(index)
-
       Modernizr.load({
         load: '//www.google-analytics.com/ga.js'
       })
 
       $element.addClass('google-analytics-loaded')
+
+  # Mailto tracking code
+  $("a[href^=\"mailto:\"]").click ->
+    window._gaq = window._gaq || []
+    window._gaq.push ["_trackEvent", "Email", "Click", $(this).attr("href")]
+
+  # Download Tracking Code
+  $("a[href$=\"zip\"],a[href$=\"pdf\"],a[href$=\"doc\"],a[href$=\"docx\"],a[href$=\"xls\"],a[href$=\"xlsx\"],a[href$=\"ppt\"],a[href$=\"pptx\"],a[href$=\"txt\"],a[href$=\"csv\"]").click ->
+    u = $(this).attr("href")
+
+    window._gaq = window._gaq || []
+    window._gaq.push ["_trackEvent", "Download", u.match(/[^.]+$/), u]
+
+  # External link tracking code for old site
+  $("a[href^=\"http\"]").click ->
+    window._gaq = window._gaq || []
+    window._gaq.push ["_trackEvent", "External Link", "Click", $(this).attr("href")]  unless @hostname is location.hostname
