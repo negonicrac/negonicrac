@@ -1,0 +1,11 @@
+.center-text {
+  text-align: center;
+}
+
+.horizontal-list {
+  @include horizontal-list;
+}
+
+.btn-cancel {
+  margin-left: 5px;
+}

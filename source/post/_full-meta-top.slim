@@ -1,0 +1,6 @@
+ul.meta
+  li.meta-item.byline.author.vcard
+    span By
+    span.fn == link_to post.author.name, post.author.url, rel: 'nofollow'
+  - if post.comments
+    li.meta-item == link_to 'comments', "#{post.url}#disqus_thread", class: 'comments', data: { disqus: { identifier: "#{data.site.url}#{post.url}" } }

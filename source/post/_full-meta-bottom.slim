@@ -1,0 +1,13 @@
+ul.meta
+  li.meta-item.pubdate
+    time.published.ago{ datetime=post.date.to_time.iso8601 pubdate='pubdate' }
+      == post.date.localtime.strftime('%e %B %Y %l:%M %p %Z')
+  - if post.comments
+    li == link_to 'comments', "#{post.url}#disqus_thread", class: 'comments', data: { disqus: { identifier: "#{data.site.url}#{post.url}" } }
+  - unless post.tags.empty?
+    li.meta-item.tags-list
+      ul
+        li
+          i.icon-tags
+        - post.tags.sort { |a,b| a[0].downcase <=> b[0].downcase }.each do |tag|
+          li == link_to tag, tag_path(tag)

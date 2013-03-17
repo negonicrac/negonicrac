@@ -1,7 +1,4 @@
-- content_for :title do
-  = current_article.title
-
 == wrap_layout :layout do
-  == partial 'post/full', locals: { post: current_article, show_breadcrumb: true, show_meta_description: true, show_meta_keywords: true }
+  == partial 'post/full', locals: { post: current_article, show_title: true, show_breadcrumb: true, show_meta_description: true, show_meta_keywords: true }
   == partial 'post/disqus_comments', locals: { post: current_article }
   == partial 'post/disqus_count'

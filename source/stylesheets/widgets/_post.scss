@@ -1,10 +1,9 @@
-article.post {
+.post {
   @include clearfix;
   margin-bottom: 1.5em;
 
-  > header {
-    h1 { margin: .5em 0 0; }
-  }
+  .post-header { }
+  .post-title { margin: .5em 0 0; }
 
   .comments { text-transform: lowercase; }
   .pubdate, .comments, .tags-list a {
@@ -26,22 +25,24 @@ article.post {
     clear: both;
     padding: 4px;
 
-    > li {
+    .meta-item {
       &:last-child { border-right: none; }
-      &.tags-list {
-        float: right;
+    }
+    
+    .tags-list {
+      float: right;
 
-        ul {
-          @include clearfix;
-          @include horizontal-list(3px);
-          li { border-right: none; }
-        }
+      ul {
+        @include clearfix;
+        @include horizontal-list(3px);
+        li { border-right: none; }
       }
-      &.author, &.author a {
-        color: $funk;
-        span { margin-left: 5px; }
-        .fn { font-weight: bold; }
-      }
+    }
+
+    .author, .author a {
+      color: $funk;
+      span { margin-left: 5px; }
+      .fn { font-weight: bold; }
     }
   }
 

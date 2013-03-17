@@ -1,0 +1,19 @@
+ul.breadcrumb
+  li
+    == link_to '/' do
+      i.icon-home
+    span.divider = '/'
+  li
+    == link_to 'Archive', '/archive.html', title: 'Archive'
+    span.divider = '/'
+  li
+    == link_to blog_year_path(post.date.year) do
+      == post.date.year
+    span.divider = '/'
+  li
+    == link_to blog_month_path(post.date.year, post.date.month) do
+      == month_name(post.date.month)
+    span.divider = '/'
+  li
+    == link_to blog_day_path(post.date.year, post.date.month, post.date.day) do
+      == ordinal(post.date.day)

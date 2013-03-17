@@ -1,0 +1,11 @@
+- if !show_title.nil? && show_title
+  - content_for :title do
+    = post.title
+
+- if !post.data.meta_description.blank? && !show_meta_description.nil? && show_meta_description
+  - content_for :meta_description do
+    == post.data.meta_description
+
+- if !post.data.meta_keywords.blank? && !show_meta_keywords.nil? && show_meta_keywords
+  - content_for :meta_keywords do
+    == post.data.meta_keywords

@@ -1,0 +1,27 @@
+/*!
+ * Lassitude v0.0.7
+ */
+
+@import 'widgets';
+
+body {
+  padding-top: 44px;
+}
+
+html, body {
+  background: #f4f4f4 image_url('/images/layout/boxes.png');
+}
+
+ul.breadcrumb {
+  background-color: rgb(244, 244, 244);
+  background-color: rgba(244, 244, 244, 0.9);
+}
+
+time.ago {
+  color: #666;
+  font-family: $lassitude-mono-font-family;
+}
+
+@import 'site/header';
+@import 'site/page';
+@import 'site/footer';

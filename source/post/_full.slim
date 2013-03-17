@@ -1,53 +1,7 @@
-- if !post.data.meta_description.blank? && !show_meta_description.nil? && show_meta_description
-  - content_for :meta_description do
-    == post.data.meta_description
-
-- if !post.data.meta_keywords.blank? && !show_meta_keywords.nil? && show_meta_keywords
-  - content_for :meta_keywords do
-    == post.data.meta_keywords
-
-article.post.hentry
-  - if !show_breadcrumb.nil? && show_breadcrumb
-    ul.breadcrumb
-      li
-        == link_to "/" do
-          i.icon-home
-        span.divider = "/"
-      li
-        == link_to "Archive", "/archive.html", title: "Archive"
-        span.divider = "/"
-      li
-        == link_to blog_year_path(post.date.year) do
-          == post.date.year
-        span.divider = "/"
-      li
-        == link_to blog_month_path(post.date.year, post.date.month) do
-          == month_name(post.date.month)
-        span.divider = "/"
-      li
-        == link_to blog_day_path(post.date.year, post.date.month, post.date.day) do
-          == ordinal(post.date.day)
-
-  header
-    h1.entry-title == link_to post.title, post.url, class: "permalink", title: post.title, rel: "bookmark"
-    ul.meta
-      li.byline.author.vcard
-        span By
-        span.fn == link_to post.author.name, post.author.url, rel: "nofollow"
-      - if post.comments
-        li == link_to "comments", "#{post.url}#disqus_thread", class: "comments", data: { disqus: { identifier: "#{data.site.url}#{post.url}" } }
-  section.content == post.body
-  section
-    ul.meta
-      li.pubdate
-        time.published.ago{ datetime=post.date.to_time.iso8601 pubdate="pubdate" }
-          == post.date.localtime.strftime("%e %B %Y %l:%M %p %Z")
-      - if post.comments
-        li == link_to "comments", "#{post.url}#disqus_thread", class: "comments", data: { disqus: { identifier: "#{data.site.url}#{post.url}" } }
-      - unless post.tags.empty?
-        li.tags-list
-          ul
-            li
-              i.icon-tags
-            - post.tags.sort { |a,b| a[0].downcase <=> b[0].downcase }.each do |tag|
-              li == link_to tag, tag_path(tag)
+article.post.hentry data-url=post.url data-pubdate=post.date.to_time.iso8601
+  == partial 'post/full-seo', locals: { post: post }
+  == partial 'post/full-breadcrumb', locals: { post: post } if !show_breadcrumb.nil? && show_breadcrum
+  == partial 'post/full-header', locals: { post: post }
+  == partial 'post/full-meta-top', locals: { post: post }
+  == partial 'post/full-content', locals: { post: post }
+  == partial 'post/full-meta-bottom', locals: { post: post }
