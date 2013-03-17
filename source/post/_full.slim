@@ -1,6 +1,6 @@
 article.post.hentry data-url=post.url data-pubdate=post.date.to_time.iso8601
-  == partial 'post/full-seo', locals: { post: post }
-  == partial 'post/full-breadcrumb', locals: { post: post } if !show_breadcrumb.nil? && show_breadcrum
+  == partial 'post/full-seo', locals: { post: post, show_title: show_title, show_breadcrumb: show_breadcrumb, show_meta_description: show_meta_description, show_meta_keywords: show_meta_keywords }
+  == partial 'post/full-breadcrumb', locals: { post: post } if !show_breadcrumb.nil? && show_breadcrumb
   == partial 'post/full-header', locals: { post: post }
   == partial 'post/full-meta-top', locals: { post: post }
   == partial 'post/full-content', locals: { post: post }
