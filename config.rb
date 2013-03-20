@@ -9,6 +9,7 @@ helpers do
 end
 
 activate :livereload
+activate :relative_assets
 activate :directory_indexes
 
 activate :blog do |blog|
@@ -38,7 +39,7 @@ ignore 'javascripts/oembed.js'
 ignore 'javascripts/timeago.js'
 ignore 'javascripts/toISO8601.js'
 ignore 'javascripts/vendor/*'
-#ignore 'images/mini-social-icons/*'
+ignore 'images/mini-social-icons/*'
 
 set :css_dir, 'stylesheets'
 set :js_dir, 'javascripts'
@@ -51,8 +52,9 @@ configure :build do
 
   #activate :smusher
   activate :minify_html
-  activate :gzip
-  activate :asset_hash
   activate :minify_css
   activate :minify_javascript
+
+  activate :gzip
+  activate :asset_hash, ignore: [/^images\/mini-social-icons/]
 end
