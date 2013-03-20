@@ -60,6 +60,7 @@ body class=page_classes data-disqus-shortname=data.site.disqus_short_name
               ul.tags.horizontal-list
                 - blog.tags.sort { |a,b| a[0].downcase <=> b[0].downcase }.each_with_index do |tag, i|
                   li == link_to tag[0], tag_path(tag[0])
+
           - if false
             section#social-links
               ul.horizontal-list
