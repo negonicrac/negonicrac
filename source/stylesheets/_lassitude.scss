@@ -4,10 +4,6 @@
 
 @import 'widgets';
 
-body {
-  padding-top: 44px;
-}
-
 html, body {
   background: #f4f4f4 image_url('/images/layout/boxes.png');
 }
@@ -22,6 +18,6 @@ time.ago {
   font-family: $lassitude-mono-font-family;
 }
 
-@import 'site/header';
-@import 'site/page';
-@import 'site/footer';
+@import 'lassitude/header';
+@import 'lassitude/page';
+@import 'lassitude/footer';

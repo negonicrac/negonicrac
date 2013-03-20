@@ -1,0 +1,27 @@
+#site-page {
+  background-color: rgb(244, 244, 244);
+  background-color: rgba(244, 244, 244, 0.9);
+  padding: 0 0 20px;
+  min-height: 19em;
+
+  .container {
+    padding: 0 10px;
+  }
+}
+
+@media (max-width: 767px) {
+  body {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .navbar-fixed-top, .navbar-fixed-bottom, .navbar-static-top {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+#site-page-header {
+  margin-top: 0;
+  padding-bottom: 0;
+}

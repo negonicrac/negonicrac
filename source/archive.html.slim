@@ -10,14 +10,22 @@ header
   h1 Archive
 
 - unless blog.articles.empty?
-  ul.tags.horizontal-list{ style="border-bottom: 1px solid #ccc; border-top: 1px solid #ccc; padding: 10px 0; margin: 15px 0;" }
-    - blog.articles.each_with_index do |article, i|
-      - @this_year = article.date.year
-      - unless @year == @this_year
-        - @year = @this_year
-        li.span3{ style="padding-left: 4px;" } == link_to @year, sitemap.find_resource_by_path('archive.html').url, anchor: @year 
+  .toc{ style="border-bottom: 1px solid #ccc; border-top: 1px solid #ccc; padding: 10px 0; margin: 15px 0;" }
+    ul.visible-desktop.horizontal-list
+      - blog.articles.each_with_index do |article, i|
+        - @this_year = article.date.year
+        - unless @year == @this_year
+          - @year = @this_year
+          li.span3{ style="padding-left: 4px;" } == link_to @year, sitemap.find_resource_by_path('archive.html').url, anchor: @year 
 
-  .posts.clearfix
+    ul.hidden-desktop.horizontal-list
+      - blog.articles.each_with_index do |article, i|
+        - @this_year = article.date.year
+        - unless @year == @this_year
+          - @year = @this_year
+          li.span3{ style="padding-left: 4px;" } == link_to @year, blog_year_path(@year)
+
+  .posts.clearfix.visible-desktop
     - blog.articles.each_with_index do |article, i|
       - @this_year = article.date.year
       - unless @year == @this_year
