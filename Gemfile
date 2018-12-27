@@ -1,12 +1,17 @@
 source 'https://rubygems.org'
-ruby '1.9.3'
+ruby '2.6.0'
+
+git_source(:github) do |repo_name|
+  repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?('/')
+  "https://github.com/#{repo_name}.git"
+end
 
 gem 'rake'
 gem 'slim'
 gem 'builder'
 gem 'uglifier'
 
-gem 'righthand', path: '~/Development/ruby/righthand'
+gem 'righthand', github: 'negonicrac/righthand'
 
 gem 'middleman'
 gem 'middleman-blog'
