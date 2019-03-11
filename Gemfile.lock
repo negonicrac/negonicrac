@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/negonicrac/righthand.git
-  revision: 4bda5ef9731046442bda0d5141b6030a6533facd
+  revision: 94daacf49519b4fd65de255c27b63593d4f13cdc
   specs:
     righthand (0.0.1)
       rake
@@ -393,7 +393,7 @@ DEPENDENCIES
   uglifier
 
 RUBY VERSION
-   ruby 2.6.0p0
+   ruby 2.6.1p33
 
 BUNDLED WITH
    1.17.2
